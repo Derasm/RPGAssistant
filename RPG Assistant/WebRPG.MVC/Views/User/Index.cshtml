@@ -1,0 +1,35 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+}
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4> Login or Register a new account here.</h4>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.ActionLink("Login as a GM", "GMLogin", null, new { @class = "btn btn-actionlink" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.ActionLink("Login as a Player", "UserLogin", null, new { @class = "btn btn-actionlink" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.ActionLink("Register an account", "Registration", null, new { @class = "btn btn-actionlink" })
+            </div>
+        </div>
+    </div>
+
+
+}

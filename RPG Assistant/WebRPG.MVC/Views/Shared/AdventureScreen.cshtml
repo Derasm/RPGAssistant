@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebRPG.MVC.UserServiceReference.Adventure>
+
+@{
+    ViewBag.Title = "AdventureScreen";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>AdventureScreen</h2>
+@Html.ActionLink("Create Adventure", "CreateAdventure")
+
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Date of Adventure:
+
+        </th>
+
+        <th>
+            Adventure name:
+        </th>
+
+        <th>
+            # of Players
+        </th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        @item.Date.ToShortDateString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Players.Count) / @Html.DisplayFor(modelItem => item.MaxPlayers) -
+                        @Html.ActionLink("join", "JoinAdventure", new { adventureName = item.Name }, new { id = "JoinLink" })
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+    }
+</table>
+@*@section scripts{
+    <script src="~/Scripts/RPGScripts.js"></script>
+    LoadEventHandlers();
+
+}*@
